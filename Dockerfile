@@ -11,7 +11,7 @@ WORKDIR /work
 COPY . /work/
 
 # Build the Go application with the build argument
-RUN go build -o tagbuilder .
+RUN go build -o kubescape-exporter .
 
 # Expose the port that the web application will listen on
 EXPOSE 8080

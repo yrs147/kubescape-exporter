@@ -1,22 +1,19 @@
-# FROM --platform=$BUILDPLATFORM golang:1.16.3-alpine3.13 AS builder
-FROM golang:1.20-alpine
+FROM --platform=$BUILDPLATFORM golang:1.20-alpine as builder
 
 ENV GO111MODULE=on \
-    CGO_ENABLED=0 
+    CGO_ENABLED=0
 
 # Set the working directory inside the container
 WORKDIR /work
 
-# Copy the source code into the container
-COPY . /work/
+RUN --mount=target=. \
+    --mount=type=cache,target=/root/.cache/go-build \
+    --mount=type=cache,target=/go/pkg \
+    GOOS=$TARGETOS GOARCH=$TARGETARCH go build -o /out/kubescape-exporter .
 
-# Build the Go application with the build argument
-RUN go build -o kubescape-exporter .
+FROM gcr.io/distroless/static-debian11:nonroot
 
-# Expose the port that the web application will listen on
-EXPOSE 8080
-
-WORKDIR /root
+COPY --from=builder /out/kubescape-exporter /usr/bin/kubescape-exporter
 
 ENTRYPOINT [ "kubescape-exporter" ]
 

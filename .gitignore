@@ -1,1 +1,8 @@
+# CRDs [cat ~/.kube/config >> KUBECONFIG]
 KUBECONFIG
+
+# Built Binary File
+kubescape-exporter
+
+# Data stored by Grafana
+data

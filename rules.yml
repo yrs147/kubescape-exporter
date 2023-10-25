@@ -1,0 +1,40 @@
+groups:
+  - name: Controls-Alerts
+    rules:
+      - alert: Critical Controls Exceeded in the Cluster!
+        expr: kubescape_controls_total_cluster_critical > 10 # 10 is the threshold
+        for: 10s
+        labels:
+          severity: critical
+          group: cluster-scope
+        annotations: 
+          summary: "Critical Controls Exceeded in the Cluster!"
+          description: "The count of critical severity controls in the cluster scope is above the acceptable threshold."
+        
+        # Similarly other alerts for controls in the cluster scope
+
+      - alert: Critical Controls Exceeded in the Namespace!
+        expr: kubescape_controls_total_namespace_critical > 5 # 1 is the threshold
+        for: 10s
+        labels:
+          severity: critical
+          group: namespace-scope
+        annotations:
+          summary: "Critical Controls Exceeded in the Namespace!"
+          description: "The count of critical severity controls in the namespace scope is above the acceptable threshold."
+
+      # Similarly other alerts for controls in the namespace scope
+
+  - name: Vulnerabilities-Alerts
+    rules:
+      - alert:
+        expr: kubescape_vulnerabilities_total_cluster_critical > 5 # 10 is the threshold
+        for: 10s
+        labels:
+          severity: critical
+          group: cluster-scope
+        annotations:
+          summary: "Critical Vulnerabilities Exceeded in the Cluster!"
+          description: "The count of critical severity vulnerabilities in the cluster scope is above the acceptable threshold."
+
+        # Similarly other alerts for vulnerabilities in the cluster scope

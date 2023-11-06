@@ -51,7 +51,31 @@ To access the exported metrics directly from the exporter, open your web browser
 
 To visualize the metrics in Prometheus, ensure that you have Prometheus configured to scrape metrics from the Kubescape Exporter. You can access Prometheus's web interface, usually available at http://localhost:9090.
 
-7. Monitoring and Alerting: Customize Grafana to set up monitoring and alerting rules based on security metrics. This will help you keep track of the security posture of your Kubernetes cluster and receive alerts for any anomalies.
+7. Make sure grafana is installed and running. You can access Grafana's web interface, usually available at http://localhost:3000. You can also check the status of the Grafana by running the following command:
+```
+sudo systemctl status grafana
+```
+If it is not running, you can start it by running the following command:
+```
+sudo systemctl start grafana
+```
+8. Initially, you will need to log in to Grafana using the default credentials. The default username is `admin`, and the default password is `admin`. You will be prompted to change the password after logging in for the first time.
+
+9. Create a data source in Grafana. To do this, follow these steps:
+- In the Main Menu on the left, under Connections, Click Data sources.
+- Click Add data source on the top right.
+- Select Prometheus as the data source.
+- In the URL field, enter the URL of the Prometheus server. Usually, this is http://localhost:9090.
+- Click Save & Test.
+
+10. Create a dashboard in Grafana using the following steps:
+- On the top-right, click on Build Dashboard.
+- Click on Add Visualization.
+- Select the data source you created in the previous step.
+- Select the metrics you want to visualize. For e.g., You can just type `critical` to get all the critical controls and vulnerabilities in both cluster and namespace scope.
+- Click on Save.
+
+11. Monitoring and Alerting: Customize Grafana to set up monitoring and alerting rules based on security metrics. This will help you keep track of the security posture of your Kubernetes cluster and receive alerts for any anomalies.
 
 Please note that you should ensure that your Kubernetes cluster is up and running before running the Kubescape Exporter. Also, keep the exporter running in the background to collect and serve security metrics continually.
 

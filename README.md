@@ -59,7 +59,7 @@ If it is not running, you can start it by running the following command:
 ```
 sudo systemctl start grafana
 ```
-8. Initially, you will need to log in to Grafana using the default credentials. The default username is `admin`, and the default password is `admin`. You will be prompted to change the password after logging in for the first time.
+8. Initially, you will need to log in to Grafana using the default credentials. The default username is `admin`, and the default password is `admin`. You will be prompted to change the password after logging in for the first time.\
 ![grafana-init](https://github.com/yrs147/kubescape-exporter/assets/75741089/9d3e096d-b343-46e3-bfb9-41fdc4077447)
 
 9. Create a data source in Grafana by following the below given steps:

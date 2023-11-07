@@ -76,18 +76,20 @@ sudo systemctl start grafana
 
 10. Create a dashboard in Grafana using the following steps:
 - On the top-right, click on Build Dashboard.\
-  ![image](https://github.com/yrs147/kubescape-exporter/assets/75741089/95d89010-560b-4254-8e3e-e5ce03ab4c3a)
+  ![build-dashboard](https://github.com/yrs147/kubescape-exporter/assets/75741089/95d89010-560b-4254-8e3e-e5ce03ab4c3a)
 
 - Click on Add Visualization.\
-  ![image](https://github.com/yrs147/kubescape-exporter/assets/75741089/c1aa4695-6dd9-4353-a685-11ab13398e70)
+  ![add-visualization](https://github.com/yrs147/kubescape-exporter/assets/75741089/c1aa4695-6dd9-4353-a685-11ab13398e70)
 
 - Select the data source you created in the previous step.\
-  ![image](https://github.com/yrs147/kubescape-exporter/assets/75741089/6a948f69-922f-411f-8d66-83b3ba745448)
+  ![add-data-src](https://github.com/yrs147/kubescape-exporter/assets/75741089/6a948f69-922f-411f-8d66-83b3ba745448)
 
 - Select the metrics you want to visualize. For e.g., You can just type `critical` to get all the critical controls and vulnerabilities in both cluster and namespace scope.\
-  ![image](https://github.com/yrs147/kubescape-exporter/assets/75741089/0f9bc295-eb40-47e8-a906-e572d47f076f)
+  ![view-metrics](https://github.com/yrs147/kubescape-exporter/assets/75741089/0f9bc295-eb40-47e8-a906-e572d47f076f)
 
 - You can also view the metrics using the `Label filters` option. For e.g., You can type `namespace = kubescape` to get all the vulnerabilities in the `kubescape` namespace.\
+  ![label-filters](https://github.com/yrs147/kubescape-exporter/assets/75741089/29662510-cf65-44ae-a951-b44425a8558c)
+
 
 - Click on Save & Apply.
 

@@ -73,7 +73,8 @@ sudo systemctl start grafana
 - Click on Add Visualization.
 - Select the data source you created in the previous step.
 - Select the metrics you want to visualize. For e.g., You can just type `critical` to get all the critical controls and vulnerabilities in both cluster and namespace scope.
-- Click on Save.
+- You can also view the metrics using the `Label filters` option. For e.g. Apply the label filter `namespace=kubescape` to get all the vulnerabilities in the kubescape namespace.
+- Click on Save & Apply.
 
 11. Monitoring and Alerting: Customize Grafana to set up monitoring and alerting rules based on security metrics. This will help you keep track of the security posture of your Kubernetes cluster and receive alerts for any anomalies.
 
